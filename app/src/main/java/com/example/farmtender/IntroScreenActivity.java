@@ -6,12 +6,12 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.farmtender.adapters.SliderAdapter;
+import com.example.farmtender.adapters.SplashSliderAdapter;
 import com.example.farmtender.databinding.ActivityIntroScreenBinding;
 
 public class IntroScreenActivity extends AppCompatActivity {
 
-    private SliderAdapter sliderAdapter;
+    private SplashSliderAdapter sliderAdapter;
     public String[] splashTitles;
     ActivityIntroScreenBinding activityIntroScreenBinding;
 
@@ -31,7 +31,7 @@ public class IntroScreenActivity extends AppCompatActivity {
                 getResources().getString(R.string.splash_screen3Title),
         };
 
-        sliderAdapter = new SliderAdapter(this, splashTitles);
+        sliderAdapter = new SplashSliderAdapter(this, splashTitles);
 
         activityIntroScreenBinding.viewPager.setAdapter(sliderAdapter);
 

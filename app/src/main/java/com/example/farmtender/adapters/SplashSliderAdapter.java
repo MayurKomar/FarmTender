@@ -12,13 +12,13 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.example.farmtender.R;
 import com.google.android.material.slider.Slider;
 
-public class SliderAdapter extends PagerAdapter {
+public class SplashSliderAdapter extends PagerAdapter {
 
     Context context;
     LayoutInflater layoutInflater;
     String [] splashTitles;
 
-    public SliderAdapter(Context context,String [] splashTitles) {
+    public SplashSliderAdapter(Context context, String [] splashTitles) {
         this.context = context;
         this.splashTitles = splashTitles;
     }

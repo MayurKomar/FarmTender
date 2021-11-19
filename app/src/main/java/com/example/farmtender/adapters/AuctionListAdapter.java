@@ -19,13 +19,13 @@ import com.example.farmtender.models.Auction;
 
 import java.util.List;
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
+public class AuctionListAdapter extends RecyclerView.Adapter<AuctionListAdapter.ViewHolder> {
 
     LayoutInflater layoutInflater;
     List<Auction> auctionList;
     Context context;
 
-    public ListAdapter(Context context, List<Auction> beersList) {
+    public AuctionListAdapter(Context context, List<Auction> beersList) {
         this.layoutInflater = LayoutInflater.from(context);
         this.auctionList = beersList;
         this.context = context;
@@ -43,7 +43,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         holder.title.setText(auctionList.get(position).getName());
         holder.price.setText(auctionList.get(position).getId());
             Glide.with(context).load(auctionList.get(position).getImage()).into(holder.postImage);
-        
+
     }
 
     @Override

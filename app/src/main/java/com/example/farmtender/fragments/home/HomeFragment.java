@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.farmtender.adapters.ListAdapter;
+import com.example.farmtender.adapters.AuctionListAdapter;
 import com.example.farmtender.databinding.FragmentHomeBinding;
 import com.example.farmtender.interfaces.AuctionsApi;
 import com.example.farmtender.models.Auction;
@@ -27,7 +27,7 @@ public class HomeFragment extends Fragment {
 
     public static final String TAG = "HomeFragment";
     ArrayList<Auction> auctionsList;
-    ListAdapter list;
+    AuctionListAdapter list;
     FragmentHomeBinding fragmentHomeBinding;
 
     @Override
@@ -51,7 +51,7 @@ public class HomeFragment extends Fragment {
 
                 }
                 fragmentHomeBinding.listView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                list = new ListAdapter(getActivity(), auctionsList);
+                list = new AuctionListAdapter(getActivity(), auctionsList);
                 fragmentHomeBinding.listView.setAdapter(list);
             }
 
