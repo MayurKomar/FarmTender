@@ -9,10 +9,8 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 import com.example.farmtender.databinding.FragmentFeaturedBinding;
-import com.example.farmtender.interfaces.AboutUsApi;
+import com.example.farmtender.interfaces.Apis;
 import com.example.farmtender.models.AboutUsResponse;
-
-import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,8 +33,8 @@ public class FeaturedFragment extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        AboutUsApi aboutUsApi = retrofit.create(AboutUsApi.class);
-        Call<AboutUsResponse> call = aboutUsApi.getAbout();
+        Apis apis = retrofit.create(Apis.class);
+        Call<AboutUsResponse> call = apis.getAbout();
         call.enqueue(webViewCallback);
         return featuredBinding.getRoot();
     }

@@ -6,12 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.farmtender.adapters.AuctionListAdapter;
 import com.example.farmtender.databinding.FragmentHomeBinding;
-import com.example.farmtender.interfaces.AuctionsApi;
+import com.example.farmtender.interfaces.Apis;
 import com.example.farmtender.models.Auction;
 import com.example.farmtender.models.AuctionsResponse;
 
@@ -29,27 +31,46 @@ public class HomeFragment extends Fragment {
     ArrayList<Auction> auctionsList;
     AuctionListAdapter list;
     FragmentHomeBinding fragmentHomeBinding;
+    int page = 1;
+    int perPage = 3;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         fragmentHomeBinding = FragmentHomeBinding.inflate(inflater, container, false);
         auctionsList = new ArrayList<>();
-        getData();
+        getData(page,perPage);
+        fragmentHomeBinding.listView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if(!fragmentHomeBinding.listView.canScrollVertically(1)){
+                    Log.d(TAG, "onScrolled: +Scrolled");
+                    page++;
+                    fragmentHomeBinding.progress.setVisibility(View.VISIBLE);
+                    getData(page,perPage);
+                }
+            }
+        });
         return fragmentHomeBinding.getRoot();
     }
 
-    private void getData() {
+    private void getData(int pageNumber,int recordPerPage) {
         Retrofit retrofit = new Retrofit.Builder().baseUrl("https://ft.webwingz.com.au/api-v2/").addConverterFactory(GsonConverterFactory.create()).build();
-        AuctionsApi auctionsApi = retrofit.create(AuctionsApi.class);
-        Call<AuctionsResponse> call = auctionsApi.getAuctions();
+        Apis auctionsApi = retrofit.create(Apis.class);
+        Call<AuctionsResponse> call = auctionsApi.getAuctions(pageNumber,recordPerPage);
         call.enqueue(new Callback<AuctionsResponse>() {
             @Override
             public void onResponse(Call<AuctionsResponse> call, Response<AuctionsResponse> response) {
-                for (int i = 0; i < response.body().getAuctionsData().getAuctions().size(); i++) {
-                    auctionsList.add(response.body().getAuctionsData().getAuctions().get(i));
+                if(pageNumber<=response.body().getAuctionsData().getPagingData().get(0).getTotalpages()){
+                    for (int i = 0; i < response.body().getAuctionsData().getAuctions().size(); i++) {
+                        auctionsList.add(response.body().getAuctionsData().getAuctions().get(i));
 
+                    }
+                }else{
+                    return;
                 }
+                fragmentHomeBinding.progress.setVisibility(View.GONE);
                 fragmentHomeBinding.listView.setLayoutManager(new LinearLayoutManager(getActivity()));
                 list = new AuctionListAdapter(getActivity(), auctionsList);
                 fragmentHomeBinding.listView.setAdapter(list);
