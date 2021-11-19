@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.146875" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/drawable/button_bg.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/drawable/category_icon_bg.xml" value="0.2703125" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/drawable/default_dot.xml" value="0.6" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/drawable/edittext_bottom_line.xml" value="0.2703125" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/drawable/ic_baseline_arrow_drop_down_24.xml" value="0.26205128205128203" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/drawable/ic_launcher_background.xml" value="0.146875" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.146875" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/drawable/ic_listings.xml" value="0.11851851851851852" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/drawable/search_bg.xml" value="0.2703125" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/drawable/see_all_button.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/drawable/selected_dot.xml" value="0.536" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/drawable/tab_color.xml" value="0.2703125" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/drawable/tab_selector.xml" value="0.14895833333333333" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/font-v26/font.xml" value="0.284375" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/font/font.xml" value="0.284375" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/layout/action_bar_bg.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/layout/activity_home.xml" value="0.16" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/layout/activity_home_screen.xml" value="0.1" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/layout/activity_home_screen2.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/layout/activity_intro_screen.xml" value="0.1" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/layout/activity_main.xml" value="0.152" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/layout/activity_register.xml" value="0.2" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/layout/content_home.xml" value="0.13125" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/layout/fragment_categories.xml" value="0.1" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/layout/fragment_dashboard.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/layout/fragment_featured.xml" value="0.1" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/layout/fragment_listings.xml" value="0.1328125" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/layout/fragment_notifications.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/layout/header.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/layout/homescreen_actionbar.xml" value="0.13125" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/layout/list_item.xml" value="0.24682971014492755" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/layout/slider_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/layout/toolbar.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/layout/welcome_layout.xml" value="0.2" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/menu/bottom_nav_menu.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/menu/drawer_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.146875" />
+        <entry key="..\:/Users/mayur/AndroidStudioProjects/FarmTender/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.146875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Farm Tender</string>
+    <string name="splash_screen1Title">Easier, better, faster\nkeeping the same old\nprocess</string>
+    <string name="splash_screen2Title">Be a part of a bigger\ncommunity\nfor all your needs</string>
+    <string name="splash_screen3Title">Help us get better\nyour <b>feedback</b> is important</string>
+    <string name="title_activity_home_screen">HomeScreen</string>
+    <string name="title_home">Home</string>
+    <string name="title_categories">Categoreies</string>
+    <string name="title_listings">Listings</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_featured">Featured</string>
+    <string name="email_address">Email Address <font color="#FF0000"> *</font></string>
+    <string name="password">Password <font color="#FF0000"> *</font></string>
+    <string name="first_name">First Name <font color="#FF0000"> *</font></string>
+    <string name="last_name">Last Name <font color="#FF0000"> *</font></string>
+    <string name="mobile">Mobile <font color="#FF0000"> *</font></string>
+    <string name="confirm_password">Confirm Password <font color="#FF0000"> *</font></string>
+    <string name="street_address">Street Address <font color="#FF0000"> *</font></string>
+    <string name="postal_code">Postal Code <font color="#FF0000"> *</font></string>
+    <string name="business_name">Business Name </string>
+    <string name="state">State <font color="#FF0000"> *</font></string>
+    <string name="abn">ABN </string>
+    <string name="ngr">NGR </string>
+    <string name="create_account">Create a FREE\nFarm Tender Account </string>
+    <string name = "terms">I accept the <font color = "#4CA746">Terms of use</font> and <font color = "#4CA746">Privacy Policy</font></string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
