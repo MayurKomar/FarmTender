@@ -40,15 +40,20 @@ public class AuctionListAdapter extends RecyclerView.Adapter<AuctionListAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(auctionList.get(position).getName());
+        holder.title.setText(auctionList.get(position).getNo());
         holder.price.setText(auctionList.get(position).getId());
+        if (!auctionList.get(position).getImage().isEmpty()) {
             Glide.with(context).load(auctionList.get(position).getImage()).into(holder.postImage);
+        }
+        else{
+            Glide.with(context).load("https://image.shutterstock.com/image-photo/22052021-riga-latvia-powerful-engine-600w-1978243382.jpg").into(holder.postImage);
+        }
 
     }
 
     @Override
     public int getItemCount() {
-        Log.d(TAG, "getItemCount: "+auctionList.size());
+        Log.d(TAG, "getItemCount: " + auctionList.size());
         return auctionList.size();
     }
 
