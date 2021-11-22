@@ -25,6 +25,11 @@ public class AuctionListAdapter extends RecyclerView.Adapter<AuctionListAdapter.
     List<Auction> auctionList;
     Context context;
 
+    public void setAuctionList(List<Auction> auctions ){
+        this.auctionList = auctions;
+        notifyDataSetChanged();
+    }
+
     public AuctionListAdapter(Context context, List<Auction> beersList) {
         this.layoutInflater = LayoutInflater.from(context);
         this.auctionList = beersList;
