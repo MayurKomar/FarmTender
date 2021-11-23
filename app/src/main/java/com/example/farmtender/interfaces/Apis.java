@@ -14,6 +14,6 @@ public interface Apis {
     Call<AboutUsResponse> getAbout();
 
     @Headers("x-api-key: FT@V2sb2#dYPa$zN")
-    @GET("auctions")
+    @GET("auctions?auction=past")
     Call<AuctionsResponse> getAuctions(@Query("page")int page, @Query("per_page")int perPage);
 }

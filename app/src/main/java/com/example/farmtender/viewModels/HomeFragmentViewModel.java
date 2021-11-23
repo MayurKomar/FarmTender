@@ -35,7 +35,7 @@ public class HomeFragmentViewModel extends ViewModel {
         call.enqueue(new Callback<AuctionsResponse>() {
             @Override
             public void onResponse(Call<AuctionsResponse> call, Response<AuctionsResponse> response) {
-                if(pageNumber <= response.body().getAuctionsData().getPagingData().get(0).getTotalpages()){
+                if(pageNumber < response.body().getAuctionsData().getPagingData().get(0).getTotalpages()){
                     auctionList.postValue(response.body().getAuctionsData().getAuctions());
                 }
             }

@@ -3,9 +3,12 @@ package com.example.farmtender;
 import android.os.Bundle;
 
 import com.example.farmtender.databinding.ActivityHomeScreenBinding;
+import com.example.farmtender.fragments.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -36,5 +39,6 @@ public class HomeScreenActivity extends AppCompatActivity {
 
 
     }
+
 
 }
