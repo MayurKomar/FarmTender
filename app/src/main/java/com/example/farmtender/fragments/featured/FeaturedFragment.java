@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.farmtender.databinding.FragmentFeaturedBinding;
@@ -28,6 +29,7 @@ public class FeaturedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         featuredBinding = FragmentFeaturedBinding.inflate(getLayoutInflater());
+        featuredBinding.webView.restoreState(savedInstanceState);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://ft.webwingz.com.au/api-v2/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -52,4 +54,9 @@ public class FeaturedFragment extends Fragment {
     };
 
 
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        featuredBinding.webView.saveState(outState);
+    }
 }

@@ -19,6 +19,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class HomeFragmentViewModel extends ViewModel {
+    private int page = 1,perPage = 6;
     private MutableLiveData<List<Auction>> auctionList;
 
     public HomeFragmentViewModel() {
@@ -29,14 +30,15 @@ public class HomeFragmentViewModel extends ViewModel {
         return auctionList;
     }
 
-    public void makeApiCall(int pageNumber, int recordPerPage) {
+    public void makeApiCall() {
         Apis apis = RetroInstance.getRetrofitClient().create(Apis.class);
-        Call<AuctionsResponse> call = apis.getAuctions(pageNumber, recordPerPage);
+        Call<AuctionsResponse> call = apis.getAuctions(page, perPage);
         call.enqueue(new Callback<AuctionsResponse>() {
             @Override
             public void onResponse(Call<AuctionsResponse> call, Response<AuctionsResponse> response) {
-                if(pageNumber < response.body().getAuctionsData().getPagingData().get(0).getTotalpages()){
+                if(page < response.body().getAuctionsData().getPagingData().get(0).getTotalpages()){
                     auctionList.postValue(response.body().getAuctionsData().getAuctions());
+                    page++;
                 }
             }
 

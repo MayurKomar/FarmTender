@@ -5,9 +5,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -19,7 +21,6 @@ import com.example.farmtender.databinding.FragmentHomeBinding;
 import com.example.farmtender.models.Auction;
 import com.example.farmtender.viewModels.HomeFragmentViewModel;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,11 +32,12 @@ public class HomeFragment extends Fragment {
     FragmentHomeBinding fragmentHomeBinding;
     HomeFragmentViewModel homeFragmentViewModel;
     LinearLayoutManager linearLayoutManager;
-    int page = 1;
-    int perPage = 6;
+    
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
         Log.d(TAG, "onViewCreated: " + auctionsList.size());
         homeFragmentViewModel = new ViewModelProvider(getActivity()).get(HomeFragmentViewModel.class);
         linearLayoutManager = new LinearLayoutManager(getContext());
@@ -57,30 +59,30 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        homeFragmentViewModel.makeApiCall(page, perPage);
+        if(homeFragmentViewModel.getAuctionListObserver().getValue()==null){
+            Log.d(TAG, "onViewCreated: Load");
+            homeFragmentViewModel.makeApiCall();
+        }
+
         fragmentHomeBinding.listView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                if (!fragmentHomeBinding.listView.canScrollVertically(1)) {
-                    page++;
+                if (!fragmentHomeBinding.listView.canScrollVertically(1) && newState == RecyclerView.SCROLL_STATE_IDLE) {
                     fragmentHomeBinding.progress.setVisibility(View.VISIBLE);
-                    homeFragmentViewModel.makeApiCall(page, perPage);
+                    homeFragmentViewModel.makeApiCall();
+                    fragmentHomeBinding.progress.setVisibility(View.GONE);
                 }
                 super.onScrollStateChanged(recyclerView, newState);
+
             }
         });
-    }
-
-    @Override
-    public void onDestroyView() {
-        Log.d(TAG, "onSaveInstanceState: "+fragmentHomeBinding.listView.getChi);
-        super.onDestroyView();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         fragmentHomeBinding = FragmentHomeBinding.inflate(inflater, container, false);
+
         return fragmentHomeBinding.getRoot();
     }
 }
