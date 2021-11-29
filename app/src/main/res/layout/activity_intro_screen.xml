@@ -30,19 +30,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.678" />
 
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabBackground="@drawable/tab_selector"
-        app:layout_constraintBottom_toTopOf="@+id/next"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewPager"
+        app:layout_constraintVertical_bias="0.0"
+        app:tabBackground="@drawable/tab_selector"
         app:tabGravity="center"
         app:tabIndicatorHeight="0dp"
-        app:tabMaxWidth="100dp"/>
-
+        app:tabMaxWidth="100dp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/next"
@@ -51,6 +53,24 @@
         android:background="@drawable/button_bg"
         android:onClick="onNextClick"
         android:text="Next"
+        android:textColor="@color/textColor"
+        android:textFontWeight="500"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewPager"
+        app:layout_constraintVertical_bias="0.27" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:visibility="gone"
+        android:id="@+id/letsGo"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:background="@drawable/button_bg"
+        android:onClick="onSkipClicked"
+        android:text="Let's Go"
         android:textColor="@color/textColor"
         android:textFontWeight="500"
         android:textSize="20sp"
@@ -74,7 +94,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/next"
-        app:layout_constraintVertical_bias="0.337" />
+        app:layout_constraintTop_toBottomOf="@+id/viewPager"
+        app:layout_constraintVertical_bias="0.603" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

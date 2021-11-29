@@ -7,29 +7,29 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.farmtender.fragments.home.HomeFragment"
+        android:name="com.android.farmtender.au.fragments.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_categories"
-        android:name="com.example.farmtender.fragments.categories.CategoriesFragment"
+        android:name="com.android.farmtender.au.fragments.categories.CategoriesFragment"
         android:label="@string/title_categories"
         tools:layout="@layout/fragment_listings" />
 
     <fragment
         android:id="@+id/navigation_listings"
-        android:name="com.example.farmtender.fragments.listings.ListingsFragment"
+        android:name="com.android.farmtender.au.fragments.listings.ListingsFragment"
         android:label="@string/title_listings"
         tools:layout="@layout/fragment_listings" />
     <fragment
         android:id="@+id/navigation_featured"
-        android:name="com.example.farmtender.fragments.featured.FeaturedFragment"
+        android:name="com.android.farmtender.au.fragments.featured.FeaturedFragment"
         android:label="@string/title_featured"
         tools:layout="@layout/fragment_featured" />
     <fragment
         android:id="@+id/navigation_account"
-        android:name="com.example.farmtender.fragments.profile.ProfileFragment"
+        android:name="com.android.farmtender.au.fragments.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>
