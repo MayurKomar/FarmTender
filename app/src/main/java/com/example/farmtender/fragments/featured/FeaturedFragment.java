@@ -8,43 +8,52 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.farmtender.databinding.FragmentFeaturedBinding;
-import com.example.farmtender.interfaces.Apis;
+import com.example.farmtender.models.AboutUsDescription;
 import com.example.farmtender.models.AboutUsResponse;
+import com.example.farmtender.viewModels.FeaturedFragmentViewModel;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class FeaturedFragment extends Fragment {
 
     FragmentFeaturedBinding featuredBinding;
     public static final String TAG = "Featured";
     private String webPageCode;
+    FeaturedFragmentViewModel featuredFragmentViewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         featuredBinding = FragmentFeaturedBinding.inflate(getLayoutInflater());
-        featuredBinding.webView.restoreState(savedInstanceState);
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://ft.webwingz.com.au/api-v2/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        Apis apis = retrofit.create(Apis.class);
-        Call<AboutUsResponse> call = apis.getAbout();
-        call.enqueue(webViewCallback);
+        featuredFragmentViewModel = new ViewModelProvider(getActivity()).get(FeaturedFragmentViewModel.class);
+        if(featuredFragmentViewModel.getAboutUsObserver().getValue() == null){
+            featuredFragmentViewModel.getAboutUs();
+        }
+        if (savedInstanceState != null) {
+            Log.d(TAG, "onCreateView: loaded");
+            featuredBinding.webView.restoreState(savedInstanceState);
+        }
+        else{
+            featuredFragmentViewModel.getAboutUsObserver().observe(getActivity(), new Observer<AboutUsDescription>() {
+                @Override
+                public void onChanged(AboutUsDescription aboutUsDescription) {
+                    featuredBinding.webView.loadData(aboutUsDescription.getDescription(), "text/html", "UTF-8");
+                }
+            });
+        }
         return featuredBinding.getRoot();
     }
 
     Callback<AboutUsResponse> webViewCallback = new Callback<AboutUsResponse>() {
         @Override
         public void onResponse(Call<AboutUsResponse> call, Response<AboutUsResponse> response) {
-            featuredBinding.webView.loadData(response.body().getData().getAboutUs().get(0).getDescription(),"text/html","UTF-8");
+            featuredBinding.webView.loadData(response.body().getData().getAboutUs().get(0).getDescription(), "text/html", "UTF-8");
         }
 
         @Override
@@ -57,6 +66,7 @@ public class FeaturedFragment extends Fragment {
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
+        Log.d(TAG, "onSaveInstanceState: saved");
         featuredBinding.webView.saveState(outState);
     }
 }

@@ -4,6 +4,7 @@ import static android.content.ContentValues.TAG;
 
 import android.util.Log;
 
+import androidx.annotation.Nullable;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -12,8 +13,14 @@ import com.example.farmtender.models.Auction;
 import com.example.farmtender.models.AuctionsResponse;
 import com.example.farmtender.network.RetroInstance;
 
+import java.io.IOException;
 import java.util.List;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
+import okio.BufferedSink;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,7 +28,7 @@ import retrofit2.Response;
 public class HomeFragmentViewModel extends ViewModel {
     private int page = 1,perPage = 6;
     private MutableLiveData<List<Auction>> auctionList;
-
+    
     public HomeFragmentViewModel() {
         auctionList = new MutableLiveData<>();
     }

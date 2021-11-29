@@ -3,6 +3,7 @@ package com.example.farmtender.interfaces;
 import com.example.farmtender.models.AboutUsResponse;
 import com.example.farmtender.models.AuctionsResponse;
 
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
